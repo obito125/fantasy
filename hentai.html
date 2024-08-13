@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fantasy Category</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Poppins:wght@300;500&display=swap');
+/* Disclaimer Styles */
+#disclaimer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    animation: slideIn 0.8s ease-out;
+}
+
+#disclaimer .content {
+    text-align: center;
+    max-width: 600px;
+    padding: 2.5rem;
+    background: linear-gradient(145deg, #141414, #1e1e1e);
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.6);
+    animation: fadeIn 1.5s ease-out;
+}
+
+#disclaimer h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #00c6ff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+#disclaimer p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+    color: #bfbfbf;
+    text-align: justify;
+}
+
+#disclaimer button {
+    background-color: #095588;
+    color: #ffffff;
+    padding: 0.8rem 2.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#disclaimer button:hover {
+    background-color: #0db7fa;
+    transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+}
+
+        body {
+            font-family: 'Cinzel', serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(120deg, #000428, #004e92);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #000;
+            color: #fff;
+            padding: 1.5rem;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            overflow: hidden;
+        }
+
+        header::before, header::after {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
+            top: -50%;
+            left: -50%;
+            animation: rotate 10s linear infinite;
+        }
+
+        header::after {
+            background: radial-gradient(circle, rgba(255, 0, 150, 0.5), transparent);
+            animation-duration: 15s;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        header img {
+            max-width: 80px;
+            margin-right: 1.5rem;
+            border-radius: 50%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        header img:hover {
+            transform: rotate(360deg) scale(1.1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            text-shadow: 3px 3px 10px #000;
+            letter-spacing: 2px;
+            position: relative;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        main {
+            padding: 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        main::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://wallpaperaccess.com/full/1110842.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            opacity: 0.1;
+            z-index: -1;
+            animation: pulse 5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.1; }
+            50% { opacity: 0.2; }
+            100% { opacity: 0.1; }
+        }
+
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 10px #000;
+            letter-spacing: 1px;
+        }
+
+        p {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            text-shadow: 1px 1px 5px #000;
+        }
+
+        .video-container {
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            border: 2px solid #095588;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .video-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255, 0, 150, 0.3), rgba(0, 204, 255, 0.3));
+            animation: sparkles 2s infinite ease-in-out;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        @keyframes sparkles {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .video-container:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.7);
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 315px;
+            z-index: 3;
+        }
+        footer {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 0.5rem; /* Reduced padding */
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            border-top: 2px solid #095588;
+        }
+
+        footer p {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.8rem; /* Reduced font size */
+            letter-spacing: 1px;
+        }
+
+        .floating-button {
+            position: fixed;
+            bottom: 70px;
+            right: 20px;
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+
+        .floating-button img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .floating-button:hover img {
+            transform: scale(1.2) rotate(360deg);
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.7);
+        }
+        .load-more {
+    position: fixed;
+    top: 20px; /* Adjust as needed */
+    right: 20px; /* Adjust as needed */
+    z-index: 1000;
+}
+
+.load-more a {
+    display: inline-block;
+    background-color: #095588;
+    color: #fff;
+    padding: 0.8rem 2rem;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: background-color 0.3s, transform 0.3s ease;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.5);
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    z-index: 2;
+}
+
+.load-more a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255, 0, 150, 0.3), rgba(0, 204, 255, 0.3));
+    z-index: -1;
+    border-radius: 50px;
+    transition: transform 0.5s ease-in-out;
+    transform: scale(1.1);
+}
+
+.load-more a:hover::before {
+    transform: scale(1);
+}
+
+.load-more a:hover {
+    background-color: #0db7fa;
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.7);
+}
+    </style>
+</head>
+<body>
+    <!-- Disclaimer Popup -->
+<div id="disclaimer">
+    <div class="content">
+        <h2>Disclaimer</h2>
+        <p>
+            * Please be aware that the content may consume more data.<br>
+            * We recommend wearing earphones for a better experience.<br>
+            * Ensure you are in desktop mode for optimal viewing.
+        </p>
+        <button id="disclaimer-ok">OK</button>
+    </div>
+</div>
+
+    <header>
+        <img src="https://cdn.truyen-hentai.com/sakura-60?interlace=1&quality=85&type=jpeg&url=https://i.redd.it/yr0netm2qy9b1.jpg&width=400&sign=JzfkaI0P35xCfJgIyMGz8HkQE2z_a5k2DLVP8TE1C1w" alt="Fantasy World Image">
+        <h1>Obito Collection</h1>
+    </header>
+    <header>
+        <h1>Fantasy Hentai</h1>
+    </header>
+
+    <main>
+        <h2>Welcome to the Fantasy Category</h2>
+        <p>Explore a collection of captivating fantasy movies and series that will take you on an unforgettable journey through mystical worlds and epic adventures.</p>
+        <p>Dive into the realm of fantasy where magic, mystery, and adventure await. Explore content that transcends the ordinary and immerses you in a world of wonders.</p>
+        <div class="video-container">
+            <div style="position:relative;padding-top:56.25%;">
+                <iframe src="https://iframe.mediadelivery.net/embed/286552/134d262d-8e62-48c5-8378-fdc1241e2e4b?autoplay=false&loop=false&muted=false&preload=true&responsive=true" loading="lazy" style="position:absolute;top:0;left:0;width:100%;height:100%;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="true"></iframe></div>
+                <div style="position:relative;padding-top:56.25%;">
+                    <iframe src="https://iframe.mediadelivery.net/embed/286552/8943f4e6-74c1-4d13-ab6d-6353e8cfcf3c?autoplay=false&loop=false&muted=false&preload=true&responsive=true" loading="lazy" style="position:absolute;top:0;left:0;width:100%;height:100%" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="true"></iframe></div>
+                    <div style="position:relative;padding-top:56.25%;">
+                        <iframe src="https://iframe.mediadelivery.net/embed/286552/20d9d450-469d-4fa6-afbe-19bb73dbb92e?autoplay=false&loop=false&muted=false&preload=true&responsive=true" loading="lazy" style="position:absolute;top:0;left:0;width:100%;height:100%;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="true"></iframe></div>
+                        <div style="position:relative;padding-top:56.25%;">
+                            <iframe src="https://iframe.mediadelivery.net/embed/286552/4514837b-cd7e-4818-ba22-870ede1f1be3?autoplay=false&loop=false&muted=false&preload=true&responsive=true" loading="lazy" style="position:absolute;top:0;left:0;width:100%;height:100%;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="true"></iframe></div>
+                            <div style="position:relative;padding-top:56.25%;">
+                                <iframe src="https://iframe.mediadelivery.net/embed/286552/5e692d89-5a2a-431d-a332-ccd328aad655?autoplay=false&loop=false&muted=false&preload=true&responsive=true" loading="lazy" style="position:absolute;top:0;left:0;width:100%;height:100%;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="true"></iframe></div>
+                                <div style="position:relative;padding-top:56.25%;">
+                                    <iframe src="https://iframe.mediadelivery.net/embed/286552/f1199d45-a8b1-4a22-8484-06f71c240cc7?autoplay=false&loop=false&muted=false&preload=true&responsive=true" loading="lazy" style="position:absolute;top:0;left:0;width:100%;height:100%;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="true"></iframe></div>
+                                    <div style="position:relative;padding-top:56.25%;">
+                                        <iframe src="https://iframe.mediadelivery.net/embed/286552/3f5904eb-60e0-4f51-b6bb-3ace74412897?autoplay=false&loop=false&muted=false&preload=true&responsive=true" loading="lazy" style="position:absolute;top:0;left:0;width:100%;height:100%;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="true"></iframe></div>
+                                        <div style="position:relative;padding-top:56.25%;">
+                                            <iframe src="https://iframe.mediadelivery.net/embed/286552/30eb76ad-4bf4-462d-88db-6ab21d7db31c?autoplay=false&loop=false&muted=false&preload=true&responsive=true" loading="lazy" style="position:absolute;top:0;left:0;width:100%;height:100%;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="true"></iframe></div>
+                                            <div style="position:relative;padding-top:56.25%;">
+                                                <iframe src="https://iframe.mediadelivery.net/embed/286552/309e05f5-2311-4bf8-b810-d4034dcd67e5?autoplay=false&loop=false&muted=false&preload=true&responsive=true" loading="lazy" style="position:absolute;top:0;left:0;width:100%;height:100%;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="true"></iframe></div>
+                                                <div style="position:relative;padding-top:56.25%;">
+                                                    <iframe src="https://iframe.mediadelivery.net/embed/286552/3f9137b6-0520-4e45-9465-1c0caa20d3bf?autoplay=false&loop=false&muted=false&preload=true&responsive=true" loading="lazy" style="position:absolute;top:0;left:0;width:100%;height:100%;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="true"></iframe></div>
+                                                    <div style="position:relative;padding-top:56.25%;">
+                                                        <iframe src="https://iframe.mediadelivery.net/embed/286552/5c79631d-6888-4f0b-a6f7-81b99763c07f?autoplay=false&loop=false&muted=false&preload=true&responsive=true" loading="lazy" style="position:absolute;top:0;left:0;width:100%;height:100%;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="true"></iframe></div>
+                                                        <div style="position:relative;padding-top:56.25%;">
+                                                            <iframe src="https://iframe.mediadelivery.net/embed/286552/e2cb4cf8-f903-4a56-a9ad-c6ee6cea4086?autoplay=false&loop=false&muted=false&preload=true&responsive=true" loading="lazy" style="position:absolute;top:0;left:0;width:100%;height:100%;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="true"></iframe></div>
+                                                           
+                                                            <div class="floating-button">
+                                                                <a href="home.html"><img src="https://img.icons8.com/color/452/home.png" alt="Home"></a>
+                                                            </div>
+
+
+
+            <script>
+                // Disclaimer Popup
+         document.getElementById('disclaimer-ok').addEventListener('click', function() {
+             document.getElementById('disclaimer').style.display = 'none';
+         });
+         
+             </script>
+            
